@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.main-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#gen_detail{
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h2 style="text-align:center">Diagnosis Report</h2>
+<div class="">
+  <table>
+    <tr>
+	  <td><a href="/diagnosis"><button type="button">RECHECK</button></a></td>
+      <td><button style = "align-items:right;" id="myBtn" onclick="window.print()">Print this page</button></td>
+    </tr>
+  </table>
+
+</div>
+<div id="gen_detail" class=""s>
+  <h4>Name:{{data[0]}}</h4>
+  <h4>Age:   {{data[1]}} </h4>
+  {% if (sex==0):%}
+  <h4>Sex: Male</h4>
+  {% else: %}
+  <h4>Sex: Female</h4>
+  {% endif %}
+</div>
+
+<div style="padding:2px 400px 0px 400px;">
+<table class="main-table">
+  <tr>
+    <th>Featues</th>
+    <th>Normal</th>
+    <th>Input</th>
+  </tr>
+
+  <tr>
+    <th>Resting Blood Pressure</th>
+    <td>(90/60-120/80)</td>
+    <td>{{data[4]}}</td>
+  </tr>
+  <tr>
+    <th>Serum Cholestrol(mg/dl)</th>
+    <td><200 md/dl</td>
+    <td>{{data[5]}}</td>
+  </tr>
+  <tr>
+    <th>Fasting Blood Sugar(mg/dl)</th>
+    <td><100(mg/dl)</td>
+    <td>{{data[6]}}</td>
+  </tr>
+  <tr>
+    <th>Rest ECG</th>
+    <td>(120-200)ms</td>
+    <td>{{data[7]}}</td>
+  </tr>
+  <tr>
+    <th>Maximum Heart Rate</th>
+    <td>(60-100) beats/minute</td>
+    <td>{{data[8]}}</td>
+  </tr>
+</div>
+</table>
+<h3>We Have Succesfully Processed Your Data And Came With Result Which Is: </h3>
+<h1 style="text-align:center">{{result}}</h1>
+
+<p>**:Fasting blood sugar >120 =0 & <120 =1<br>**:Resting ElectroCardioGraphy in range of (120-200)ms =0 & (<120 or >200)=1</p>
+</body>
+</html>
